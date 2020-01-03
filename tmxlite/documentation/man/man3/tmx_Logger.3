@@ -1,0 +1,56 @@
+.TH "tmx::Logger" 3 "Tue Dec 31 2019" "Version 1.0.0" "tmxlite" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tmx::Logger \- Class allowing messages to be logged to a combination of one or more destinations such as the console, log file or output window in Visual Studio\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Log\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBOutput\fP { \fBConsole\fP, \fBFile\fP, \fBAll\fP }"
+.br
+.ti -1c
+.RI "enum \fBType\fP { \fBInfo\fP, \fBWarning\fP, \fBError\fP }"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBlog\fP (const std::string &message, Type type=Type::Info, Output output=Output::Console)"
+.br
+.RI "Logs a message to a given destination\&. "
+.ti -1c
+.RI "static const std::string & \fBbufferString\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class allowing messages to be logged to a combination of one or more destinations such as the console, log file or output window in Visual Studio\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "static void tmx::Logger::log (const std::string & message, Type type = \fCType::Info\fP, Output output = \fCOutput::Console\fP)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Logs a message to a given destination\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP Message to log 
+.br
+\fItype\fP Whether this message gets tagged as information, a warning or an error 
+.br
+\fIoutput\fP Destination for the message\&. Can be the console via cout, a log file on disk, or both 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for tmxlite from the source code\&.

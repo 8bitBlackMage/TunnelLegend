@@ -1,0 +1,61 @@
+.TH "tmx::Tileset::Tile" 3 "Tue Dec 31 2019" "Version 1.0.0" "tmxlite" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tmx::Tileset::Tile \- Any tiles within a tile set which have special data associated with them such as animation or terrain information will have one of these stored in the tile set\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Tileset\&.hpp>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBAnimation\fP"
+.br
+.RI "a group of frames which make up an animation "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::uint32_t \fBID\fP = 0"
+.br
+.ti -1c
+.RI "std::array< std::int32_t, 4u > \fBterrainIndices\fP {}"
+.br
+.ti -1c
+.RI "std::uint32_t \fBprobability\fP = 100"
+.br
+.ti -1c
+.RI "struct \fBtmx::Tileset::Tile::Animation\fP \fBanimation\fP"
+.br
+.ti -1c
+.RI "std::vector< \fBProperty\fP > \fBproperties\fP"
+.br
+.ti -1c
+.RI "\fBObjectGroup\fP \fBobjectGroup\fP"
+.br
+.ti -1c
+.RI "std::string \fBimagePath\fP"
+.br
+.ti -1c
+.RI "\fBVector2u\fP \fBimageSize\fP"
+.br
+.ti -1c
+.RI "\fBVector2u\fP \fBimagePosition\fP"
+.br
+.RI "The position of the tile within the image\&. "
+.ti -1c
+.RI "std::string \fBtype\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Any tiles within a tile set which have special data associated with them such as animation or terrain information will have one of these stored in the tile set\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for tmxlite from the source code\&.

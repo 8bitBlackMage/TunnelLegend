@@ -1,0 +1,52 @@
+.TH "tmx::ImageLayer" 3 "Tue Dec 31 2019" "Version 1.0.0" "tmxlite" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tmx::ImageLayer \- Image layers contain a single image which make up that layer\&. The parser contains the fully resolved path to the image relative to the working directory\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ImageLayer\&.hpp>\fP
+.PP
+Inherits \fBtmx::Layer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBImageLayer\fP (const std::string &)"
+.br
+.ti -1c
+.RI "Type \fBgetType\fP () const override"
+.br
+.RI "Returns a Type value representing the concrete type\&. Use this when deciding which conrete layer type to use when calling the templated function \fBgetLayerAs<T>()\fP "
+.ti -1c
+.RI "void \fBparse\fP (const pugi::xml_node &) override"
+.br
+.RI "Attempts to parse the specific node layer type\&. "
+.ti -1c
+.RI "const std::string & \fBgetImagePath\fP () const"
+.br
+.RI "Returns the path, relative to the working directory, of the image used by the image layer\&. "
+.ti -1c
+.RI "const \fBColour\fP & \fBgetTransparencyColour\fP () const"
+.br
+.RI "Returns the colour used by the image to represent transparent pixels\&. By default this is (0, 0, 0, 0) "
+.ti -1c
+.RI "bool \fBhasTransparency\fP () const"
+.br
+.RI "Returns true if the image used by this layer specifically states a colour to use as transparency\&. "
+.ti -1c
+.RI "const \fBVector2u\fP & \fBgetImageSize\fP () const"
+.br
+.RI "Returns the size of the image of the image layer in pixels\&. "
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Image layers contain a single image which make up that layer\&. The parser contains the fully resolved path to the image relative to the working directory\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for tmxlite from the source code\&.

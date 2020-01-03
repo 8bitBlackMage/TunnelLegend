@@ -1,0 +1,7 @@
+/home/alice/Documents/RaylibEngine/tmxlite/tmxlite/build/CMakeFiles/install/strip.dir
+/home/alice/Documents/RaylibEngine/tmxlite/tmxlite/build/CMakeFiles/edit_cache.dir
+/home/alice/Documents/RaylibEngine/tmxlite/tmxlite/build/CMakeFiles/rebuild_cache.dir
+/home/alice/Documents/RaylibEngine/tmxlite/tmxlite/build/CMakeFiles/tmxlite.dir
+/home/alice/Documents/RaylibEngine/tmxlite/tmxlite/build/CMakeFiles/list_install_components.dir
+/home/alice/Documents/RaylibEngine/tmxlite/tmxlite/build/CMakeFiles/install/local.dir
+/home/alice/Documents/RaylibEngine/tmxlite/tmxlite/build/CMakeFiles/install.dir

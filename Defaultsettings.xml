@@ -1,0 +1,7 @@
+<root>
+    <VideoSettings WRes="1024" HRes="768" FPSCap="60" Fullscreen="false"/>
+    <ImagePath>./assets/Images/</ImagePath>
+    <MapPath>./assets/Maps/</MapPath>
+    <MusicPath>./assets/Music/</MusicPath>
+    <SoundFXPath>./assets/sfx</SoundFXPath>
+</root>

@@ -1,0 +1,65 @@
+.TH "tmx::Property" 3 "Tue Dec 31 2019" "Version 1.0.0" "tmxlite" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tmx::Property \- Represents a custom property\&. Tiles, objects and layers of a tmx map may have custom properties assigned to them\&. This class represents a single property and provides access to its value, the type of which can be determined with \fBgetType()\fP  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Property\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBType\fP { \fBBoolean\fP, \fBFloat\fP, \fBInt\fP, \fBString\fP, \fBColour\fP, \fBFile\fP, \fBUndef\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBparse\fP (const pugi::xml_node &)"
+.br
+.RI "Attempts to parse the given node as a property\&. "
+.ti -1c
+.RI "Type \fBgetType\fP () const"
+.br
+.RI "Returns the type of data stored in the property\&. This should generally be called first before trying to read the proprty value, as reading the incorrect type will lead to undefined behaviour\&. "
+.ti -1c
+.RI "const std::string & \fBgetName\fP () const"
+.br
+.RI "Returns the name of this property\&. "
+.ti -1c
+.RI "bool \fBgetBoolValue\fP () const"
+.br
+.RI "Returns the property's value as a boolean\&. "
+.ti -1c
+.RI "float \fBgetFloatValue\fP () const"
+.br
+.RI "Returns the property's value as a float\&. "
+.ti -1c
+.RI "int \fBgetIntValue\fP () const"
+.br
+.RI "Returns the property's value as an integer\&. "
+.ti -1c
+.RI "const std::string & \fBgetStringValue\fP () const"
+.br
+.RI "Returns the property's value as a string\&. "
+.ti -1c
+.RI "const \fBColour\fP & \fBgetColourValue\fP () const"
+.br
+.RI "Returns the property's value as a \fBColour\fP struct\&. "
+.ti -1c
+.RI "const std::string & \fBgetFileValue\fP () const"
+.br
+.RI "Returns the file path property as a string, relative to the map file\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents a custom property\&. Tiles, objects and layers of a tmx map may have custom properties assigned to them\&. This class represents a single property and provides access to its value, the type of which can be determined with \fBgetType()\fP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for tmxlite from the source code\&.
