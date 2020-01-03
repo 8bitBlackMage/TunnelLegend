@@ -1,0 +1,43 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "clang build active file",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-g",
+                "-I" ,
+                "${workspaceFolder}/tmxlite/include/",
+                "${workspaceFolder}/Main.cpp",
+                "${workspaceFolder}/GraphicsCode/TextureLoading.cpp",
+                "${workspaceFolder}/GraphicsCode/Graphics.cpp",
+                "${workspaceFolder}/MapLoader.cpp",
+                "${workspaceFolder}/tinyxml2/tinyxml2.cpp",
+                "${workspaceFolder}/tmxlite/src/*.cpp",
+                "${workspaceFolder}/tmxlite/src/detail/*.cpp",
+                "${workspaceFolder}/tmxlite/src/*.c",
+                "-o",
+                "${workspaceFolder}/Game",
+                "-lraylib",
+                "-lGL",
+                "-lm",
+                "-lpthread",
+                "-ldl",
+                 "-lrt",
+                 "-lX11",
+                 
+
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        }
+    ]
+}
