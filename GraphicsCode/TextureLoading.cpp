@@ -32,6 +32,18 @@ TextureManager::TextureManager(std::string path, bool autoload)
 
     }
 }
+
+
+
+Texture2D& TextureManager::loadFromFile(std::string Path)
+{
+    std::string Fullpath = "./../assets/" + Path;
+    Texture2D Texture = LoadTexture(Fullpath.c_str());
+    size_t lastdot = Path.find_last_of(".");
+    Path = Path.substr(0,lastdot);
+    m_Textures.emplace(Path,Texture);
+    return &Texture;
+}
 //remove all textures from Vram and clear out the arrays
 TextureManager::~TextureManager()
 {

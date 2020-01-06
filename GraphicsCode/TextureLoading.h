@@ -20,7 +20,7 @@ static TextureManager& getManager(std::string path, bool autoload);
 TextureManager(TextureManager const&) = delete;
 void operator = (TextureManager const&) = delete;
  
-bool loadFromFile(); 
+Texture2D& loadFromFile(std::string filename); 
 void setAutoLoad(bool flag);
 
 //access to texture memory via a map, but also with vector based indexing
