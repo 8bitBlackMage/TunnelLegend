@@ -10,6 +10,7 @@ mapmanager & mapManager = mapmanager::getManager(TextureLoader);
 Graphics VideoDevice(TextureLoader);
 
 
+
 bool init()
 {
 
@@ -38,7 +39,10 @@ bool init()
 int main()
 {
 if(init() == true){
+    Drawable TestObject={TextureLoader,50,50,"test.png"};
+    VideoDevice.addToBuffer(TestObject);
     while(WindowShouldClose() == false)
+  
     {
     
     VideoDevice.loop();

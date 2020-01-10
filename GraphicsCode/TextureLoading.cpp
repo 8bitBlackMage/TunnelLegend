@@ -4,7 +4,7 @@
 //texture management singleton implimentation! 
 TextureManager::TextureManager(std::string path, bool autoload)
 {
-    if(autoload){
+ /*   if(autoload){
         //standard constructor 
         DIR * pdir;
 
@@ -30,20 +30,54 @@ TextureManager::TextureManager(std::string path, bool autoload)
             }
         }
 
-    }
+    }*/
 }
 
 
 
-Texture2D& TextureManager::loadFromFile(std::string Path)
+void TextureManager::loadFromFile(std::string Path)
 {
-    std::string Fullpath = "./../assets/" + Path;
-    Texture2D Texture = LoadTexture(Fullpath.c_str());
+
+    //format the string for key generation / texture loading
+    std::string Fullpath = "./assets/Images/" + Path;
     size_t lastdot = Path.find_last_of(".");
-    Path = Path.substr(0,lastdot);
-    m_Textures.emplace(Path,Texture);
-    return &Texture;
+
+    std::string ShortPath = Path.substr(0,lastdot);
+
+    //generate integer key from the string
+    uint Key = generateID(ShortPath);
+    
+    //check if the texture manager has already got that texture in memory
+    if(m_Textures.count(Key) == 0){
+    
+        //if it is not present load it into VRAM 
+        Texture2D Vram = LoadTexture(Fullpath.c_str());
+        // add it to texture lookup to be used later
+        m_Textures.emplace(Key,Vram);
+        m_lookup.emplace(Path,Key);
+
+        printf("%lu", m_Textures.size() );
+    }
+
+
 }
+
+uint TextureManager::generateID(std::string Path)
+{
+unsigned int output;
+for(int i = 0; i < Path.size(); i++)
+{
+char value = Path.at(i);
+
+output += (int)value<<output;
+
+
+}
+
+return output;
+}
+
+
 //remove all textures from Vram and clear out the arrays
 TextureManager::~TextureManager()
 {

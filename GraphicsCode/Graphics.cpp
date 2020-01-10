@@ -1,26 +1,7 @@
 #include "Graphics.hpp"
 
 
-Drawable::Drawable(){
 
-}
-
-Drawable::Drawable(TextureManager Cache ,float x, float y, std::string textureName){
-    M_position = {x, y};
-    m_fromSpriteSheet= false;
-    m_Texture = &Cache.m_Textures.at(textureName);
-}
-
-
-
-Drawable::Drawable(TextureManager Cache, float x, float y, std::string TextureName,float SheetPosX, float SheetPosY,float SheetPosH, float SheetPosW)
-    {
-    M_position = {x, y};
-    m_fromSpriteSheet = true;
-    m_Texture = &Cache.m_Textures.at(TextureName);
-    m_sourceRect = {SheetPosX,SheetPosY,SheetPosH,SheetPosW};
-
-    }
 
 
 
@@ -34,16 +15,44 @@ Drawable::Drawable(TextureManager Cache, float x, float y, std::string TextureNa
 
 Graphics::Graphics(TextureManager &Cache):TextureCache(Cache)
 {
-
+Rendertype = layerless;
 }
 
 void Graphics::loop()
 {
-ClearBackground(BLUE);
-BeginDrawing();
+    ClearBackground(BLUE);
+    BeginDrawing();
+  //  BeginMode2D(M_Camera);
+    switch(Rendertype)
+    {
+        case(layerless):
+        {
+            for(Drawable TextureObject: VideoBuffer)
+            {
+                if(TextureObject.m_fromSpriteSheet == true){
+                    DrawTextureRec(*TextureObject.m_Texture,TextureObject.m_sourceRect,TextureObject.m_position, WHITE );
+                }
+                else
+                {
+                    DrawTextureV(*TextureObject.m_Texture,TextureObject.m_position,WHITE);
 
+                }
 
-EndDrawing();
+            }
+        }
+
+        case(multilayer):
+        {
+
+        }
+
+    }
+  //  EndMode2D();
+    EndDrawing();
+}
+
+void Graphics::addToBuffer(Drawable Texture){
+    VideoBuffer.push_back(Texture);
 }
 
 

@@ -2,25 +2,13 @@
 #include<string>
 #include<vector>
 #include "TextureLoading.h"
-//drawable struct (sprites and such)
-struct Drawable{
-    Drawable();
-    //standard non spritesheet constructor
-    Drawable(TextureManager Cache, float x, float y, std::string textureName);
-    //spritesheet constructor, 
-    Drawable(TextureManager Cache, float x, float y, std::string TextureName,float SheetPosX, float SheetPosY,float SheetPosH, float SheetPosW);
+#include "Drawable.h"
 
 
-    //variables 
-
-    Texture2D* m_Texture;
-    Vector2 M_position;
-    int m_Height;
-    int m_Width;
-    bool m_fromSpriteSheet;
-    Rectangle m_sourceRect;
-    TextureManager * Cache;
+enum VideoMode{
+layerless, multilayer
 };
+
 
 
 
@@ -36,16 +24,23 @@ class Graphics{
     //empties the video buffer of the graphics system, used to free memory and clear screen 
     void flushBuffer();
 
+
+    void addToBuffer(Drawable texture);
     private:
+    VideoMode Rendertype;
     Camera2D M_Camera;
     std::vector<Drawable>VideoBuffer;
     TextureManager&  TextureCache;
+
+
+
 };
 
 
 
     //master object type for video Layers. only used for polymorphism reasons
 class Layer{
+
 
     public:
     int layernum;
@@ -54,10 +49,10 @@ class Layer{
     std::vector<Drawable>renderBuffer;
     };
 
-
+//layer type for storing and managing a layer of tiled textures
 class TileLayer : public Layer
 {
-    //layer type for storing and managing a layer of tiled textures
+    
     public:
     Vector2 TileSize;
     
@@ -65,7 +60,6 @@ class TileLayer : public Layer
 
 
 };
-
 //class type for background layer, usually a single image, with parallax effects
 class BackGroundLayer: public Layer
 {
@@ -77,7 +71,7 @@ class BackGroundLayer: public Layer
 };
 
 
-    //class type for layer of movable animated sprites. 
+//class type for layer of movable animated sprites. 
 class SpriteLayer: public Layer
 {
 
